@@ -11,10 +11,12 @@ export const useQuestionFactory = ({
 }) => {
   const init = initial || start;
   const [value, setValue] = useState(processor ? processor(init) : init);
+  const [dirty, setDirty] = useState(false);
   const handler = useCallback(
     (_, val) => {
       const newVal = parseInt(val, 10);
       setValue(processor ? processor(newVal) : newVal);
+      setDirty(true);
     },
     [setValue],
   );
@@ -30,6 +32,8 @@ export const useQuestionFactory = ({
     text,
     type,
     initial,
+    dirty,
+    value,
   };
 };
 

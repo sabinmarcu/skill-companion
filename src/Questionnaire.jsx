@@ -1,25 +1,22 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React, { useState } from 'react';
+
 import { useQuestions } from './state';
 import Question from './Question';
 
-const Container = styled.section`
-  @media (min-width: 768px) {
-    max-height: 100%;
-    overflow-y: auto;
-  }
-`;
 export default () => {
   const questions = useQuestions();
+  const [activePanel, setActivePanel] = useState(questions[0]);
   return (
-    <Container>
+    <>
       {questions.map((key, index) => (
         <Question
-          key={key}
+          expanded={key === activePanel}
+          onChange={() => setActivePanel(key)}
           id={key}
-          index={index + 1}
+          key={key}
+          index={index}
         />
       ))}
-    </Container>
+    </>
   );
 };
