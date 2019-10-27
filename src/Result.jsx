@@ -20,7 +20,7 @@ const BrainWrapper = styled.div`
 
 const StyledCard = styled(Card)`
   height: 100%;
-  margin: 10px;
+  /* margin: 10px; */
 `;
 
 export default () => {

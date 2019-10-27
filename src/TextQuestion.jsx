@@ -6,10 +6,10 @@ import {
   Typography,
 } from '@material-ui/core';
 
-export default ({ id }) => (
+export default ({ extra: { text } }) => (
   <CardContent>
     <Typography component="p">
-      {require(`./assets/${id}`).default}
+      {text}
     </Typography>
   </CardContent>
 );

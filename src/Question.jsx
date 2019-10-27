@@ -14,6 +14,7 @@ import styled from '@emotion/styled';
 import { useQuestion } from './state';
 import ImageQuestion from './ImageQuestion';
 import TextQuestion from './TextQuestion';
+import FrequencyQuestion from './FrequencyQuestion';
 
 const ExpansionPanelWrapper = ({ className, ...props }) => (
   <ExpansionPanelSummary
@@ -43,6 +44,7 @@ export default ({
     handler,
     value,
     dirty,
+    extra,
   } = useQuestion(id);
   return (
     <ExpansionPanel
@@ -58,7 +60,8 @@ export default ({
         <div style={{ width: '100%' }}>
           <Typography variant="h6" component="h6">{text}</Typography>
           {id && type === 'image' && <ImageQuestion id={id} />}
-          {id && type === 'text' && <TextQuestion id={id} />}
+          {id && type === 'text' && <TextQuestion extra={extra} id={id} />}
+          {id && type === 'frequency' && <FrequencyQuestion id={id} extra={extra} />}
           <Slider
             min={start}
             max={end}

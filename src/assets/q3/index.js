@@ -1,1 +1,0 @@
-export default 'Three Swedish switched witches watch three Swiss Swatch watch switches. Which Swedish switched witch watch which Swiss Swatch watch switch?';
