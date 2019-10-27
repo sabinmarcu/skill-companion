@@ -93,7 +93,7 @@ export default ({ id, extra: { count, frequency = 0.65 } }) => {
       <Wrapper>
         {images.map((img, index) => (
           <Image
-            visible={iteration === index}
+            visible={started && iteration === index}
             key={index}
             src={img}
           />
